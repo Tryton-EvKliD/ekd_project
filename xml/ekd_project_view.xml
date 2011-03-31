@@ -1,1 +1,463 @@
-/home/trytond-1.8.2/trytond/modules/ekd_project/xml/ekd_project_view.xml
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data>
+        <record model="res.group" id="group_project">
+            <field name="name">Project</field>
+        </record>
+        <record model="res.group" id="group_project_admin">
+            <field name="name">Project Administration</field>
+        </record>
+        <record model="res.group" id="group_project_management">
+            <field name="name">Project Management</field>
+        </record>
+        <record model="res.group" id="group_project_control">
+            <field name="name">Project Control</field>
+        </record>
+        <record model="res.group" id="group_project_budget">
+            <field name="name">Project Budget</field>
+        </record>
+        <record model="res.group" id="group_project_task">
+            <field name="name">Project Tasks</field>
+        </record>
+        <record model="res.group" id="group_project_journal">
+            <field name="name">Project Journal</field>
+        </record>
+        <record model="res.group" id="group_project_work">
+            <field name="name">Project Works</field>
+        </record>
+        <record model="res.group" id="group_project_data">
+            <field name="name">Project Input Data</field>
+        </record>
+        <record model="res.user" id="res.user_admin">
+            <field name="groups"
+                eval="[('add', ref('group_project')), ('add', ref('group_project_admin'))]"/>
+        </record>
+        <menuitem name="Project Management RU" id="menu_project" sequence="15"
+                groups="group_project,group_project_admin" icon="tryton-calculator"/>
+
+        <menuitem name="Configuration" parent="menu_project"
+                id="menu_project_configuration" groups="group_project_admin"
+                sequence="10" icon="tryton-preferences"/>
+
+        <menuitem name="Projects" parent="menu_project"
+                id="menu_project_total" groups="group_project,group_project_admin"
+                sequence="100" icon="tryton-preferences"/>
+
+        <menuitem name="Budgets of projects" parent="menu_project"
+                id="menu_project_budget" groups="group_project_budget,group_project_admin"
+                sequence="200" icon="tryton-preferences"/>
+
+        <menuitem name="Tasks of projects" parent="menu_project"
+                id="menu_project_tasks" groups="group_project_task,group_project_admin"
+                sequence="300" icon="tryton-preferences"/>
+
+        <menuitem name="Works of projects" parent="menu_project"
+                id="menu_project_works" groups="group_project_work,group_project_admin"
+                sequence="400" icon="tryton-preferences"/>
+
+        <menuitem name="Members of projects" parent="menu_project"
+                id="menu_project_members" groups="group_project_management,group_project_admin"
+                sequence="500" icon="tryton-preferences"/>
+
+        <menuitem name="Datas of projects" parent="menu_project"
+                id="menu_project_data" groups="group_project_data,group_project_admin"
+                sequence="700" icon="tryton-preferences"/>
+
+        <menuitem name="Controls Data of projects" parent="menu_project"
+                id="menu_project_controls" groups="group_project_control,group_project_admin"
+                sequence="800" icon="tryton-preferences"/>
+
+        <!-- Project Main-->
+        <record id="view_project_form" model="ir.ui.view">
+            <field name="model">ekd.project</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Project">
+                    <group col="3" id="gr_head">
+                        <group colspan="3" col="8" id="gr_head">
+                            <group colspan="8" col="8" id="gr_head">
+                                <label name="company" />
+                                <field colspan="1" name="company" widget="selection" />
+                                <label name="type_project" />
+                                <field colspan="2" name="type_project" widget="selection" />
+                            </group>
+                            <group colspan="8" col="8" id="gr_head">
+                                <label name="name" />
+                                <field colspan="3" name="name" />
+                                <label name="shortcut" />
+                                <field colspan="1" name="shortcut" />
+                                <label name="code" />
+                                <field colspan="1" name="code" />
+                            </group>
+                        </group>
+                        <newline/>
+                        <group col="2" id="gr_customer">
+                            <label name="party" />
+                            <field name="party" />
+                            <label name="contact" />
+                            <field name="contact" />
+                        </group>
+                        <group col="2" id="gr_employee">
+                            <label name="manager" />
+                            <field name="manager" />
+                            <label name="employee" />
+                            <field name="employee" />
+                        </group>
+                        <group col="2" id="gr_date">
+                            <label name="start_date" />
+                            <field name="start_date" />
+                            <label name="end_date" />
+                            <field name="end_date" />
+                        </group>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="General" id="page_admin">
+                            <group col="4" id="gr_property">
+<!-->
+                                <group col="2" id="gr_property">
+                                    <field name="property" >
+                                        <tree>
+                                            <field name="name"/>
+                                            <field name="value"/>
+                                            <field name="uom"/>
+                                            <field name="type_value" tree_invisible="1"/>
+                                            <field name="type_property" tree_invisible="1"/>
+                                        </tree>
+                                    </field>
+                                </group>
+<-->
+                                <group col="2" id="gr_account">
+                                    <group col="2" id="gr_account">
+                                        <separator colspan="4" string="Project accounting" id="sep_admin"/>
+                                        <label name="budget" />
+                                        <field name="budget" />
+                                        <group colspan="2" col="3" id="total">
+                                            <label name="total_income" />
+                                            <field name="total_income" />
+                                            <field name="total_budget_income" />
+                                            <label name="total_expense" />
+                                            <field name="total_expense" />
+                                            <field name="total_budget_expense" />
+                                        </group>
+                                    </group>
+                                    <group col="2" id="gr_state">
+                                        <separator colspan="2" string="Project state" id="sep_prj_state"/>
+                                        <label name="active" />
+                                        <field name="active" />
+                                        <label name="priority" /> 
+                                        <field name="priority" />
+                                        <label name="warn_employee" />
+                                        <field name="warn_employee" />
+                                        <label name="state" />
+                                        <field name="state" />
+                                        <group col="1" colspan="2" id="buttons">
+                                            <button string="Draft" name="button_draft" type="object"
+                                                    states="{'invisible': Not(Equal(Eval('state'), 'empty'))}"/>
+                                            <button string="Change" name="button_draft" type="object"
+                                                    states="{'invisible': Not(In(Eval('state'), ['pending', 'open']))}"/>
+                                            <button string="Pending" name="button_pending" type="object"
+                                                    states="{'invisible': Not(Equal(Eval('state'), 'draft'))}"/>
+                                            <button string="Make Template" name="button_template" type="object"
+                                                    states="{'invisible': Not(Equal(Eval('state'), 'template'))}"/>
+                                            <button string="Running" name="button_running" type="object"
+                                                    states="{'invisible': Not(Equal(Eval('state'), 'pending'))}"/>
+                                            <button string="Cancelled" name="button_cancelled" type="object"
+                                                    states="{'invisible': Not(In(Eval('state'), ['pending', 'open']))}"/>
+                                            <button string="Complited" name="button_done" type="object"
+                                                    states="{'invisible': Not(Equal(Eval('state'), 'open'))}"/>
+                                            <button string="Restore" name="button_draft" type="object"
+                                                    states="{'invisible': Not(In(Eval('state'), ['deleted', 'cancelled']))}"/>
+                                        </group>
+                                    </group>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Tasks and Event" id="page_task">
+                            <field colspan="4" name="tasks">
+                                <tree string="Tasks" editable="bottom" sequence="sequence">
+                                    <field name="type"/>
+                                    <field name="summary"/>
+                                    <field name="employee"/>
+                                    <field name="dtstart"/>
+                                    <field name="due"/>
+                                    <field name="complited"/>
+                                    <field name="priority"/>
+                                    <field name="percent_complete"/>
+                                    <field name="status"/>
+                                    <field name="sequence" tree_invisible="1"/>
+                                </tree>
+                                <form string="Task" col="8">
+                                    <label name="summary"/>
+                                    <field colspan="7" name="summary"/>
+                                    <newline/>
+                                    <label name="sequence"/>
+                                    <field name="sequence"/>
+                                    <label name="priority"/>
+                                    <field name="priority"/>
+                                    <label name="type"/>
+                                    <field name="type"/>
+                                    <label name="dtstart"/>
+                                    <field name="dtstart"/>
+                                    <label name="due"/>
+                                    <field name="due"/>
+                                    <label name="completed"/>
+                                    <field name="completed"/>
+                                    <label name="classification"/>
+                                    <field name="classification"/>
+                                    <label name="employee"/>
+                                    <field name="employee"/>
+                                    <label name="status"/>
+                                    <field name="status"/>
+                                    <label name="percent_complete"/>
+                                    <field name="percent_complete"/>
+                                    <separator colspan="4" string="Description" id="sp_descrip"/>
+                                    <field  colspan="4" name="description"/>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Event" id="page_event">
+                            <field colspan="4" name="events">
+                                <tree string="Events" editable="bottom" sequence="sequence">
+                                    <field name="sequence"/>
+                                    <field name="priority"/>
+                                    <field name="summary"/>
+                                    <field name="employee"/>
+                                    <field name="dtstart"/>
+                                    <field name="dtend"/>
+                                    <field name="location"/>
+                                    <field name="status"/>
+                                </tree>
+                                <form string="Task" >
+                                    <label name="sequence"/>
+                                    <field name="sequence"/>
+                                    <label name="priority"/>
+                                    <field name="priority"/>
+                                    <label name="type"/>
+                                    <field name="type"/>
+                                    <label name="summary"/>
+                                    <field name="summary"/>
+                                    <label name="description"/>
+                                    <field name="description"/>
+                                    <label name="dtstart"/>
+                                    <field name="dtstart"/>
+                                    <label name="dtend"/>
+                                    <field name="dtend"/>
+                                    <label name="employee"/>
+                                    <field name="employee"/>
+                                    <label name="status"/>
+                                    <field name="status"/>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Notes" id="page_note">
+                            <field colspan="4" name="notes"/>
+                        </page>
+                    </notebook>
+                </form>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_project_tree">
+            <field name="model">ekd.project</field>
+            <field name="type">tree</field>
+            <field name="field_childs">childs</field>
+            <field name="arch" type="xml">
+            <![CDATA[
+                <tree string="Account Types Templates">
+                    <field name="type_project" select="1"/>
+                    <field name="name" select="1"/>
+                    <field name="start_date" select="1"/>
+                    <field name="end_date" select="1"/>
+                    <field name="manager" select="2"/>
+                    <field name="employee" select="2"/>
+                    <field name="state"/>
+                </tree>
+            ]]>
+            </field>
+        </record>
+
+        <record id="view_project_list" model="ir.ui.view">
+            <field name="model">ekd.project</field>
+            <field name="type">tree</field>
+            <field name="priority" eval="5"/>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="Projects">
+                    <field name="party"/>
+                    <field name="type_project" select="2"/>
+                    <field name="name"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="employee" select="2"/>
+                    <field name="notes" tree_invisible="1" />
+                    <field name="total_income" />
+                    <field name="total_budget_income" />
+                    <field name="total_expense" />
+                    <field name="total_budget_expense" />
+                    <field name="state"/>
+                </tree>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_project_all_list">
+            <field name="name">List All Projects</field>
+            <field name="res_model">ekd.project</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('parent', '=', False)]</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_project_all_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="view_project_list"/>
+            <field name="act_window" ref="act_project_all_list"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_project_all_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="view_project_form"/>
+            <field name="act_window" ref="act_project_all_list"/>
+        </record>
+
+        <menuitem parent="menu_project_total" action="act_project_all_list"
+            groups="group_project_admin" id="menu_project_all_list"/>
+
+        <record model="ir.action.act_window" id="act_project_draft_list">
+            <field name="name">Draft Projects</field>
+            <field name="res_model">ekd.project</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('state', '=', 'draft')]</field>
+        </record>
+
+        <menuitem parent="menu_project_total" action="act_project_draft_list"
+            groups="group_project_admin" id="menu_project_draft_list"/>
+
+        <record model="ir.action.act_window" id="act_project_template_list">
+            <field name="name">Template Projects</field>
+            <field name="res_model">ekd.project</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('state', '=', 'template')]</field>
+        </record>
+
+        <menuitem parent="menu_project_total" action="act_project_template_list"
+            groups="group_project_admin" id="menu_project_template_list"/>
+
+        <record model="ir.action.act_window" id="act_project_open_list">
+            <field name="name">Open Projects</field>
+            <field name="res_model">ekd.project</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('state', '=', 'open')]</field>
+        </record>
+
+        <menuitem parent="menu_project_total" action="act_project_open_list"
+            groups="group_project_management,group_project_admin" id="menu_project_open_list"/>
+
+        <record model="ir.action.act_window" id="act_project_pending_list">
+            <field name="name">Pending Projects</field>
+            <field name="res_model">ekd.project</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('state', '=', 'pending')]</field>
+        </record>
+
+        <menuitem parent="menu_project_total" action="act_project_pending_list"
+            groups="group_project_admin" id="menu_project_pending_list"/>
+
+        <record model="ir.action.act_window" id="act_project_cancelled_list">
+            <field name="name">Cancelled Projects</field>
+            <field name="res_model">ekd.project</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('state', '=', 'cancelled')]</field>
+        </record>
+
+        <menuitem parent="menu_project_total" action="act_project_cancelled_list"
+            groups="group_project_admin" id="menu_project_cancelled_list"/>
+
+        <record model="ir.action.act_window" id="act_project_done_list">
+            <field name="name">Done Projects</field>
+            <field name="res_model">ekd.project</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('state', '=', 'done')]</field>
+        </record>
+
+        <menuitem parent="menu_project_total" action="act_project_done_list"
+            groups="group_project_admin" id="menu_project_done_list"/>
+
+        <record id="act_project_all_tree" model="ir.action.act_window">
+            <field name="name">Struct All Projects</field>
+            <field name="res_model">ekd.project</field>
+            <field name="view_type">tree</field>
+            <field name="domain">[('parent', '=', False)]</field>
+        </record>
+
+        <record model="ir.action.act_window.view"
+                id="view_act_project_all_tree">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="view_project_tree"/>
+            <field name="act_window" ref="act_project_all_tree"/>
+        </record>
+
+        <menuitem action="act_project_all_tree" id="menu_project_all_tree"
+	    groups="group_project_admin" parent="menu_project_total"/>
+
+        <record id="act_project_open" model="ir.action.act_window">
+            <field name="name">Running Main Projects</field>
+            <field name="res_model">ekd.project</field>
+            <field name="view_type">tree</field>
+            <field name="domain">[('parent', '=', False),('state','=','open')]</field>
+        </record>
+
+        <record model="ir.action.act_window.view"
+                id="view_act_project_open_tree">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="view_project_tree"/>
+            <field name="act_window" ref="act_project_open"/>
+        </record>
+
+        <menuitem action="act_project_open" id="menu_view_project_open"
+	    groups="group_project_admin" parent="menu_project_total"/>
+<!-->
+        <record id="open_view_template_project_main" model="ir.action.act_window">
+            <field name="name">Template of Main Projects</field>
+            <field name="res_model">ekd.project</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('state','=','template')]</field>
+            <field name="view" ref="view_project_main_list"/>
+        </record>
+
+        <menuitem action="open_view_template_project_main" id="menu_template_project_main" parent="project.menu_definitions"/>
+<-->
+        <record id="act_project_new" model="ir.action.act_window">
+            <field name="name">New Project</field>
+            <field name="res_model">ekd.project</field>
+            <field name="view_type">form</field>
+        </record>
+
+        <record model="ir.action.act_window.view"
+                id="view_act_project_new">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="view_project_form"/>
+            <field name="act_window" ref="act_project_new"/>
+        </record>
+
+        <menuitem action="act_project_new" id="menu_project_new" parent="menu_project"
+	    groups="group_project_admin" sequence="50"/>
+
+        <record model="ir.model.access" id="access_project_group">
+            <field name="model" search="[('model', '=', 'ekd.project')]"/>
+            <field name="group" ref="group_project"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="access_project_admin">
+            <field name="model" search="[('model', '=', 'ekd.project')]"/>
+            <field name="group" ref="group_project_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+
+    </data>
+</tryton>

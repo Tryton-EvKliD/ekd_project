@@ -1,1 +1,216 @@
-/home/trytond-1.8.2/trytond/modules/ekd_project/xml/ekd_budget.xml
+<?xml version="1.0"?>
+<tryton>
+    <data>
+
+        <record model="ir.ui.view" id="view_budget_form_project">
+            <field name="model">ekd.account.budget</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Account" col="6">
+                    <group col="6" id="all_head">
+                        <group col="6" colspan="4" id="budget_head">
+                            <label name="company"/>
+                            <field colspan="2" name="company"/>
+                            <newline/>
+                            <label name="code"/>
+                            <field colspan="2" name="code"/>
+                            <label name="active"/>
+                            <field name="active" xexpand="0" width="25"/>
+                            <newline/>
+                            <label name="name"/>
+                            <field colspan="5" name="name"/>
+                            <newline/>
+                            <label name="total_income"/>
+                            <field name="total_income"/>
+                            <label name="total_budget"/>
+                            <field name="total_budget"/>
+                            <label name="total_marga"/>
+                            <field name="total_marga"/>
+                        </group>
+                        <group col="2" colspan="2" id="state">
+                            <separator colspan="2" string="State" id="sep_state"/>
+                            <label name="state"/>
+                            <field name="state"/>
+                            <group col="1" colspan="2" id="buttons">
+                                <button string="Run" name="button_run" type="object"
+                                        states="{'invisible': Not(Equal(Eval('state'), 'draft'))}"/>
+                                <button string="Completed" name="button_done" type="object"
+                                        states="{'invisible': Not(Equal(Eval('state'), 'running'))}"/>
+                                <button string="Draft" name="button_draft" type="object" 
+                                        states="{'invisible': Not(Equal(Eval('state'), 'done'))}"/>
+                                <button string="Restore" name="button_restore" type="object" 
+                                        states="{'invisible': Not(Equal(Eval('state'), 'deleted'))}"/>
+                            </group>
+                        </group>
+                    </group>
+                    <newline/>
+                    <notebook>
+                        <page string="Lines Bidget" id="lines">
+                            <field name="lines">
+                                <form string="Line budget" >
+                                    <group col="2" id="total">
+                                        <label name="direct_line"/>
+                                        <field name="direct_line"/>
+                                        <label name="analytic"/>
+                                        <field name="analytic"/>
+                                        <label name="name"/>
+                                        <field name="name"/>
+                                        <label name="uom"/>
+                                        <field name="uom"/>
+                                        <label name="quantity"/>
+                                        <field name="quantity"/>
+                                        <label name="price_unit"/>
+                                        <field name="price_unit"/>
+                                        <label name="amount"/>
+                                        <field name="amount"/>
+                                    </group>
+                                    <field name="unit_digits" invisible="1"/>
+                                    <field name="type_line" invisible="1"/>
+                                    <field name="kind" invisible="1"/>
+                                    <field name="code" invisible="1"/>
+                                    <field name="sequence" invisible="1"/>
+                                </form>
+                                <tree string="Lines Budget" 
+                                    colors="If(Or(Equal(Eval('type_line'), 'section'), Equal(Eval('type_line'), 'subtotal')),'blue',If(And(Equal(Eval('direct_line'), 'expense'), Equal(Eval('type_line'),'line')),'red','black'))">
+                                    <field name="direct_line"/>
+                                    <field name="analytic"/>
+                                    <field name="name"/>
+                                    <field name="uom"/>
+                                    <field name="quantity"/>
+                                    <field name="price_unit"/>
+                                    <field name="amount_change"/>
+                                    <field name="currency" tree_invisible="1"/>
+                                    <field name="sequence" tree_invisible="1"/>
+                                    <field name="kind" tree_invisible="1"/>
+                                    <field name="type_line" tree_invisible="1"/>
+                                    <field name="unit_digits" tree_invisible="1"/>
+                                </tree>
+                            </field>
+                            <newline/>
+                            <group col="2" colspan="2" id="but_calculate">
+                                <button string="Calculate" name="button_calculate" type="object"
+                                        states="{'invisible': Not(Equal(Eval('state'), 'draft'))}"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </form>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_budget_tree_project">
+            <field name="model">ekd.account.budget</field>
+            <field name="type">tree</field>
+            <field name="field_childs">childs</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="Budgets">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="type_budget" select="1"/>
+                    <field name="total_income" />
+                    <field name="total_budget" />
+                    <field name="total_marga" />
+                    <field name="move_income" />
+                    <field name="move_expense" />
+                </tree>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_budget_tree_project_total">
+            <field name="model">ekd.account.budget</field>
+            <field name="type">tree</field>
+            <field name="field_childs">childs</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="Budgets">
+                    <field name="code" select="1"/>
+                    <field name="name" select="1"/>
+                    <field name="type_budget" select="1"/>
+                    <field name="total_income"/>
+                    <field name="total_budget"/>
+                    <field name="total_marga"/>
+                    <field name="move_income" />
+                    <field name="move_expense" />
+                </tree>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_budget_form_project">
+            <field name="name"> All Budgets</field>
+            <field name="res_model">ekd.account.budget</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('project_budget', '=', True)]</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_budget_form_project_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="view_budget_tree_project"/>
+            <field name="act_window" ref="act_budget_form_project"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_budget_form_project_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="view_budget_form_project"/>
+            <field name="act_window" ref="act_budget_form_project"/>
+        </record>
+
+        <menuitem parent="menu_project_budget" groups="group_project_budget,group_project_admin"
+            action="act_budget_form_project" id="menu_budget_form_project"/>
+
+        <record model="ir.action.act_window" id="act_budget_current_tree_project">
+            <field name="name">Current Budgets</field>
+            <field name="res_model">ekd.account.budget</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('project_budget', '=', True),('active','=',True),('state','=','running')]</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_budget_current_form_project_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="view_budget_tree_project"/>
+            <field name="act_window" ref="act_budget_current_tree_project"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_budget_current_form_project_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="view_budget_form_project"/>
+            <field name="act_window" ref="act_budget_current_tree_project"/>
+        </record>
+        <menuitem parent="menu_project_budget" groups="group_project_budget,group_project_admin"
+            action="act_budget_current_tree_project" id="menu_budget_current_tree_project"/>
+<!-->
+        <record model="ir.model.access" id="access_budget">
+            <field name="model" search="[('model', '=', 'ekd.account.budget')]"/>
+            <field name="group" ref="group_project_budget"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="access_budget_line">
+            <field name="model" search="[('model', '=', 'ekd.account.budget.line')]"/>
+            <field name="group" ref="group_project_budget"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+<-->
+        <record model="ir.model.access" id="access_budget_admin">
+            <field name="model" search="[('model', '=', 'ekd.account.budget')]"/>
+            <field name="group" ref="group_project_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+        <record model="ir.model.access" id="access_budget_line_admin">
+            <field name="model" search="[('model', '=', 'ekd.account.budget.line')]"/>
+            <field name="group" ref="group_project_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+
+    </data>
+</tryton>

@@ -1,1 +1,37 @@
-/home/trytond-1.8.2/trytond/modules/ekd_project/xml/ekd_company.xml
+<?xml version="1.0"?>
+<!-- This file is part of Tryton.  The COPYRIGHT file at the top level of
+this repository contains the full copyright notices and license terms. -->
+<tryton>
+    <data>
+        <record model="ir.ui.view" id="company_view_form_tax">
+            <field name="model">company.company</field>
+            <field name="type">form</field>
+            <field name="inherit" ref="ekd_company.company_view_form"/>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <data>
+                    <xpath
+                        expr="/form/notebook/page[@id=&quot;preferences&quot;]/group[@id=&quot;accounting&quot;]/separator[@id=&quot;sp_accounting&quot;]"
+                        position="after">
+                        <label name="project_revenue"/>
+                        <field name="project_revenue"/>
+                        <label name="project_expense"/>
+                        <field name="project_expense"/>
+                    </xpath>
+
+                    <xpath
+                        expr="/form/notebook/page[@id=&quot;preferences&quot;]/group[@id=&quot;dates&quot;]/field[@name=&quot;cal_accounting&quot;]"
+                        position="after">
+                        <label name="cal_works"/>
+                        <field name="cal_works"/>
+                        <label name="cal_projects"/>
+                        <field name="cal_projects"/>
+                    </xpath>
+                </data>
+                ]]>
+            </field>
+        </record>
+
+    </data>
+</tryton>
+

@@ -1,0 +1,496 @@
+type,name,res_id,src,value,fuzzy
+error,ekd.project,0,Party not find!,Заказчик не найден!,0
+error,ekd.project,0,The code must be unique!,Код должен быть уникальным,0
+error,ekd.project,0,Type project not find!,Тип проекта не найден!,0
+error,ekd.project.type,0,The Name of the type project must be unique!,,0
+error,ekd.project.type,0,The code of the type project must be unique!,,0
+field,"company.company,cal_projects",0,All calendar project,,0
+field,"company.company,cal_works",0,All calendar works ,,0
+field,"company.company,project_expense",0,Account Expense of Project,Счет расходов по проектам,0
+field,"company.company,project_revenue",0,Account Revenue of Project,Счет оплат по проектам,0
+field,"company.employee,calendar",0,Calendar,Календарь,0
+field,"ekd.account.budget,project",0,Project,Проект,0
+field,"ekd.account.move,Project",0,Project,Учет проектов,0
+field,"ekd.account.move,project",0,Project,Учет проектов,0
+field,"ekd.account.move.line,ct_project",0,Credit Project,,0
+field,"ekd.account.move.line,dt_project",0,Debit Project,,0
+field,"ekd.account.move.line,project",0,Project,Учет проектов,0
+field,"ekd.project,account_cost",0,Account Cost,Счет расходов,0
+field,"ekd.project,account_expense",0,Account expense,Счет расходов,0
+field,"ekd.project,account_income",0,Account Income,Счет оплаты,0
+field,"ekd.project,account_revenue",0,Account Revenue,Счет доходов,0
+field,"ekd.project,active",0,Active,Активный,0
+field,"ekd.project,analytic",0,Analytic Account,Аналитический счет,0
+field,"ekd.project,balance_cost",0,Cost,Расход,0
+field,"ekd.project,balance_revenue",0,Revenue,Доходы,0
+field,"ekd.project,budget",0,Project budget,Бюджет проекта,0
+field,"ekd.project,budget_line",0,Project budget lines,Строки бюджета проекта,0
+field,"ekd.project,childproject",0,Sub Project,Субпроект,0
+field,"ekd.project,childs",0,Chield Project,Субпроект,0
+field,"ekd.project,code",0,Project Code,Код ,0
+field,"ekd.project,company",0,Company,Учет.орг.,0
+field,"ekd.project,contact",0,Contact Face,Контактое лицо,0
+field,"ekd.project,date_end",0,Expected End,Дата окончания,0
+field,"ekd.project,date_start",0,Starting Date,Дата начала,0
+field,"ekd.project,employee",0, Performer,Исполнитель,0
+field,"ekd.project,end_date",0,Expected End,Дата окончания,0
+field,"ekd.project,events",0,Project events,,0
+field,"ekd.project,full_name",0,Full Project Name,Полное наименование,0
+field,"ekd.project,manager",0,Coordinator,Координатор,0
+field,"ekd.project,members",0,Project Members,Участники проекта,0
+field,"ekd.project,metod",0,Metod,Метод,0
+field,"ekd.project,metod_func",0,Metod,Метод,0
+field,"ekd.project,name",0,Project Name,Наименование,0
+field,"ekd.project,notes",0,Notes,Комментарии,0
+field,"ekd.project,parent",0,Parent Project,Основной проект,0
+field,"ekd.project,partner",0,Party,Контрагент,0
+field,"ekd.project,party",0,Customer,Заказчик,0
+field,"ekd.project,priority",0,Priority,Приоритет,0
+field,"ekd.project,property",0,Property Project,Свойства проекта,0
+field,"ekd.project,rec_name",0,Name,Наименование,0
+field,"ekd.project,shortcut",0,Short Name,Кратко,0
+field,"ekd.project,start_date",0,Starting Date,Дата начала,0
+field,"ekd.project,state",0,State,Состояние,0
+field,"ekd.project,supervisor",0,Supervisor,Супервайзер,0
+field,"ekd.project,tasks",0,Project tasks,Задачи проекта,0
+field,"ekd.project,total_budget",0,Total Budget,Бюджет всего,0
+field,"ekd.project,total_budget_expense",0,Total Budget expense,Плановый расход,0
+field,"ekd.project,total_budget_income",0,Total Budget Income,Плановый доход,0
+field,"ekd.project,total_expense",0,"Total expense (Fact, Plan)","Расход всего (Факт, План)",0
+field,"ekd.project,total_income",0,"Total Income (Fact, Plan)","Приход всего (Факт, План)",0
+field,"ekd.project,type_project",0,Type Project,Тип проекта,0
+field,"ekd.project,type_user",0,Type Project,Тип проекта,0
+field,"ekd.project,warn_employee",0,Warn Supervisor,Предупредить супервайзера,0
+field,"ekd.project,warn_supervisor",0,Warn Supervisor,Предупредить супервайзера,0
+field,"ekd.project,works",0,Project works,Работы по проекту,0
+field,"ekd.project.events,employee",0,Assigned to,Поручено...,0
+field,"ekd.project.events,event",0,Calendar Event,,0
+field,"ekd.project.events,project",0,Project,Проект,0
+field,"ekd.project.events,rec_name",0,Name,Наименование,0
+field,"ekd.project.journal,active",0,Active,Действующий,0
+field,"ekd.project.journal,control_data",0,Control of Data,Контроль заданий,0
+field,"ekd.project.journal,distrib_task",0,Distrib Tasks,Выдано заданий,0
+field,"ekd.project.journal,error_data",0,Error of Data,Ошибки заданий,0
+field,"ekd.project.journal,line",0,Employees on the project,Персонал на проекте,0
+field,"ekd.project.journal,name",0,Name,Наименование,0
+field,"ekd.project.journal,note",0,Note,Комментарий,0
+field,"ekd.project.journal,project",0,Project,Учет проектов,0
+field,"ekd.project.journal,rec_name",0,Name,Наименование,0
+field,"ekd.project.journal,recruitment",0,Recruitment,Рекрут,0
+field,"ekd.project.journal,return_data",0,Return of Data,Сдано заданий,0
+field,"ekd.project.journal,return_task",0,Return of Tasks,Возврат заданий,0
+field,"ekd.project.journal,state",0,State,Состояние,0
+field,"ekd.project.journal.line,control_data",0,Control of Data,Контроль заданий,0
+field,"ekd.project.journal.line,distrib_task",0,Distrib Tasks,Выдано заданий,0
+field,"ekd.project.journal.line,employee",0,Peripatetic,Внештатный,0
+field,"ekd.project.journal.line,error_data",0,Error of Data,Ошибки заданий,0
+field,"ekd.project.journal.line,journal",0,Journal of Psroject,,0
+field,"ekd.project.journal.line,note",0,Note,Комментарий,0
+field,"ekd.project.journal.line,plan_date",0,Plan date,Планируемая дата,0
+field,"ekd.project.journal.line,rec_name",0,Name,Наименование,0
+field,"ekd.project.journal.line,return_data",0,Return of Data,Сдано заданий,0
+field,"ekd.project.journal.line,return_task",0,Return of Tasks,Возврат заданий,0
+field,"ekd.project.journal.line,state",0,State,Состояние,0
+field,"ekd.project.members,employee",0,Employees,Сотрудники,0
+field,"ekd.project.members,hour",0,Hour,Час,0
+field,"ekd.project.members,note",0,Notes,Комментарии,0
+field,"ekd.project.members,project",0,Project,Учет проектов,0
+field,"ekd.project.members,rec_name",0,Name,Наименование,0
+field,"ekd.project.property,name",0,Name,Наименование,0
+field,"ekd.project.property,project",0,Project,Учет проектов,0
+field,"ekd.project.property,rec_name",0,Name,Наименование,0
+field,"ekd.project.property,type_property",0,Property Type,Тип проекта,0
+field,"ekd.project.property,type_value",0,Type Value,Тип значения,0
+field,"ekd.project.property,uom",0,UoM,Ед.изм.,0
+field,"ekd.project.property,value",0,Value,Значение,0
+field,"ekd.project.subproject,account",0,Account,Учетный счет,0
+field,"ekd.project.subproject,active",0,Active,Активный,0
+field,"ekd.project.subproject,analytic",0,Analytic Account,Аналитический счет,0
+field,"ekd.project.subproject,childs",0,Child Project,Субпроект,0
+field,"ekd.project.subproject,code",0,Project Code,Код ,0
+field,"ekd.project.subproject,date_end",0,Expected End,Дата окончания,0
+field,"ekd.project.subproject,date_start",0,Starting Date,Дата начала,0
+field,"ekd.project.subproject,employee",0,Supervisor,Исполнитель,0
+field,"ekd.project.subproject,end_date",0,Expected End,Дата окончания,0
+field,"ekd.project.subproject,manager",0,Project Manager,Координатор,0
+field,"ekd.project.subproject,members",0,Project Members,Участники проекта,0
+field,"ekd.project.subproject,name",0,SubProject Name,Наименование,0
+field,"ekd.project.subproject,notes",0,Notes,Комментарии,0
+field,"ekd.project.subproject,parent",0,Parent Project,Основной проект,0
+field,"ekd.project.subproject,priority",0,Priority,Приоритет,0
+field,"ekd.project.subproject,rec_name",0,Name,Наименование,0
+field,"ekd.project.subproject,shortcut",0,SubProject shortcut,Кратко,0
+field,"ekd.project.subproject,start_date",0,Starting Date,Дата начала,0
+field,"ekd.project.subproject,state",0,State,Состояние,0
+field,"ekd.project.subproject,supervisor",0,Supervisor,Супервайзер,0
+field,"ekd.project.subproject,type_project",0,Type Project,Тип проекта,0
+field,"ekd.project.subproject,type_user",0,Type Project,Тип проекта,0
+field,"ekd.project.subproject,warn_employee",0,Warn Supervisor,Предупредить супервайзера,0
+field,"ekd.project.subproject,warn_supervisor",0,Warn Supervisor,Предупредить супервайзера,0
+field,"ekd.project.tasks,active",0,Active,Активный,0
+field,"ekd.project.tasks,childs",0,Delegated Tasks,Переданные задачи,0
+field,"ekd.project.tasks,close_date",0,Date Closed,Дата закрытия,0
+field,"ekd.project.tasks,deadline_date",0,Deadline,Крайний срок,0
+field,"ekd.project.tasks,description",0,Description,Описание,0
+field,"ekd.project.tasks,employee",0,Assigned to,Поручено...,0
+field,"ekd.project.tasks,name",0,Task summary,Описание задачи,0
+field,"ekd.project.tasks,notes",0,Notes,Комментарии,0
+field,"ekd.project.tasks,parent",0,Parent Tasks,Основная задача,0
+field,"ekd.project.tasks,partner",0,Party,Контрагент,0
+field,"ekd.project.tasks,party",0,Assigned to Party,Аутсортинг,0
+field,"ekd.project.tasks,planned_hours",0,Planned Hours,Плановое время,0
+field,"ekd.project.tasks,priority",0,Importance,Важность,0
+field,"ekd.project.tasks,project",0,Project,Учет проектов,0
+field,"ekd.project.tasks,rec_name",0,Name,Наименование,0
+field,"ekd.project.tasks,remaining_hours",0,Remaining Hours,Оставшиеся часы,0
+field,"ekd.project.tasks,sequence",0,Sequence,Последовательность,0
+field,"ekd.project.tasks,start_date",0,Starting Date,Дата начала,0
+field,"ekd.project.tasks,state",0,State,Состояние,0
+field,"ekd.project.tasks,todo",0,Calendar Todo,,0
+field,"ekd.project.tasks,type",0,Type,Тип,0
+field,"ekd.project.tasks,work",0,Work done,Выполнение задачи,0
+field,"ekd.project.tasks,works",0,Work done,Выполнение задачи,0
+field,"ekd.project.tasks.type,account",0,Account,Учетный счет,0
+field,"ekd.project.tasks.type,active",0,Active,Активный,0
+field,"ekd.project.tasks.type,analytic",0,Analytic Account,Аналитический счет,0
+field,"ekd.project.tasks.type,childs",0,Child Type,Подчиненый,0
+field,"ekd.project.tasks.type,code",0,Code Type,Код ,0
+field,"ekd.project.tasks.type,end_date",0,Expected End,Дата окончания,0
+field,"ekd.project.tasks.type,name",0,Type Name,Наименование,0
+field,"ekd.project.tasks.type,parent",0,Parent Type,Основной,0
+field,"ekd.project.tasks.type,property",0,Property Type,Тип свойства,0
+field,"ekd.project.tasks.type,rec_name",0,Name,Наименование,0
+field,"ekd.project.tasks.type,shortcut",0,Shortcut name,Кратко,0
+field,"ekd.project.tasks.type,start_date",0,Starting Date,Дата начала,0
+field,"ekd.project.tasks.type.property,active",0,Active,Активный,0
+field,"ekd.project.tasks.type.property,name",0,Name,Наименование,0
+field,"ekd.project.tasks.type.property,rec_name",0,Name,Наименование,0
+field,"ekd.project.tasks.type.property,type",0,Type Project,Тип проекта,0
+field,"ekd.project.tasks.type.property,type_value",0,Type Name,Наименование,0
+field,"ekd.project.tasks.type.property,uom",0,UoM,Ед.изм.,0
+field,"ekd.project.tasks.works,date",0,Date,Дата,0
+field,"ekd.project.tasks.works,employee",0,Done by,Исполнитель,0
+field,"ekd.project.tasks.works,hours",0,Time Spent,"Время, затраченное",0
+field,"ekd.project.tasks.works,model_ref",0,Reference by model,Ссылка на документ,0
+field,"ekd.project.tasks.works,name",0,Work summary,Описание работы,0
+field,"ekd.project.tasks.works,notes",0,Notes,Комментарии,0
+field,"ekd.project.tasks.works,rec_name",0,Name,Наименование,0
+field,"ekd.project.tasks.works,task",0,Task,Задача,0
+field,"ekd.project.type,account",0,Account,Учетный счет,0
+field,"ekd.project.type,active",0,Active,Активный,0
+field,"ekd.project.type,analytic",0,Analytic Account,Аналитический счет,0
+field,"ekd.project.type,childs",0,Child Type,Подчиненый,0
+field,"ekd.project.type,code",0,Code Type,Код ,0
+field,"ekd.project.type,code_full",0,Code Full,Полный код,0
+field,"ekd.project.type,end_date",0,Expected End,Дата окончания,0
+field,"ekd.project.type,metod_selection",0,Metod,Метод,0
+field,"ekd.project.type,name",0,Type Name,Наименование,0
+field,"ekd.project.type,name_full",0,Name Full,Полное наименование,0
+field,"ekd.project.type,notes_model",0,Notes Model,Комментарии,0
+field,"ekd.project.type,parent",0,Parent Type,Основной,0
+field,"ekd.project.type,property",0,Property Type,Тип свойства,0
+field,"ekd.project.type,rec_name",0,Name,Наименование,0
+field,"ekd.project.type,shortcut",0,Shortcut name,Кратко,0
+field,"ekd.project.type,start_date",0,Starting Date,Дата начала,0
+field,"ekd.project.type.property,active",0,Active,Активный,0
+field,"ekd.project.type.property,name",0,Name,Наименование,0
+field,"ekd.project.type.property,rec_name",0,Name,Наименование,0
+field,"ekd.project.type.property,type",0,Type Project,Тип проекта,0
+field,"ekd.project.type.property,type_value",0,Type Name,Наименование,0
+field,"ekd.project.type.property,uom",0,UoM,Ед.изм.,0
+field,"project.budget,budget",0,Budget,Бюджет,0
+field,"project.budget,lines",0,Project,Учет проектов,0
+field,"project.budget,project",0,Project,Учет проектов,0
+field,"project.budget,rec_name",0,Name,Наименование,0
+field,"project.budget,state",0,State,Состояние,0
+field,"project.budget.line,budget_line",0,Budget Account,Учетный счет бюджета ,0
+field,"project.budget.line,budget_prj",0,Budget Project,Бюджет проекта,0
+field,"project.budget.line,price_unit",0,Price Unit,Цена за ед.,0
+field,"project.budget.line,project",0,Project,Учет проектов,0
+field,"project.budget.line,rec_name",0,Name,Наименование,0
+field,"project.budget.line,state",0,State,Состояние,0
+field,"project.budget.lines.template,budget",0,Budget Template,Шаблон бюджета,0
+field,"project.budget.lines.template,child",0,Child Lines,,0
+field,"project.budget.lines.template,name",0,Name Item,,0
+field,"project.budget.lines.template,notes",0,Notes,Комментарии,0
+field,"project.budget.lines.template,parent",0,Parent Line,Основная строка,0
+field,"project.budget.lines.template,price_unit",0,Price Unit,Цена за ед.,0
+field,"project.budget.lines.template,rec_name",0,Name,Наименование,0
+field,"project.budget.lines.template,sort",0,Sort Line,Сортировка,0
+field,"project.budget.lines.template,type_line",0,Type Line,Тип строки,0
+field,"project.budget.lines.template,uom",0,UoM,Ед.изм.,0
+field,"project.budget.template,active",0,Active,Активный,0
+field,"project.budget.template,child",0,Child Line,Подчиненые строки,0
+field,"project.budget.template,date_end",0,Date End,Дата окончание,0
+field,"project.budget.template,date_start",0,Date Start,Дата начала,0
+field,"project.budget.template,line",0,Budget Lines,Строки бюджета,0
+field,"project.budget.template,name",0,Name Template,Наименование,0
+field,"project.budget.template,notes",0,Notes,Комментарии,0
+field,"project.budget.template,parent",0,Parent Line,Основная строка,0
+field,"project.budget.template,rec_name",0,Name,Наименование,0
+field,"project.budget.template,type_budget",0,Type Budget,Тип бюджета,0
+field,"project.events,employee",0,Assigned to,Поручено...,0
+field,"project.events,event",0,Calendar Event,,0
+field,"project.events,project",0,Project,Учет проектов,0
+field,"project.events,rec_name",0,Name,Наименование,0
+help,"ekd.project,analytic",0,"Link this project to an analytic account if you need financial management on projects. It enables you to connect projects with budgets, planning, cost and revenue analysis, timesheets on projects, etc.",,0
+help,"ekd.project,members",0,"Project's member. Not used in any computation, just for information purpose.",,0
+help,"ekd.project,notes",0,Internal description of the project.,Внутренне описание проекта,0
+help,"ekd.project.budget.template,notes",0,Internal description of the project.,Внутренне описание проекта,0
+help,"ekd.project.journal.line,plan_date",0,Планируемая дата выдачи задания,,0
+help,"ekd.project.subproject,account",0,"Link this project to an account if you need financial management on projects. It enables you to connect projects with budgets, planning, cost and revenue analysis, timesheets on projects, etc.",,0
+help,"ekd.project.subproject,analytic",0,"Link this project to an analytic account if you need financial management on projects. It enables you to connect projects with budgets, planning, cost and revenue analysis, timesheets on projects, etc.",,0
+help,"ekd.project.subproject,members",0,"Project's member. Not used in any computation, just for information purpose.",,0
+help,"ekd.project.subproject,notes",0,Internal description of the project.,Внутренне описание проекта,0
+help,"ekd.project.subproject,warn_employee",0,"If you check this field, the project manager will receive a request each time a task is completed by his team.",,0
+help,"ekd.project.subproject,warn_supervisor",0,"If you check this field, the project manager will receive a request each time a task is completed by his team.",,0
+help,"ekd.project.tasks,project",0,,Резервный счет,0
+help,"ekd.project.tasks.type,account",0,"Link this project to an account if you need financial management on projects. It enables you to connect projects with budgets, planning, cost and revenue analysis, timesheets on projects, etc.",,0
+help,"ekd.project.tasks.type,analytic",0,"Link this project to an analytic account if you need financial management on projects. It enables you to connect projects with budgets, planning, cost and revenue analysis, timesheets on projects, etc.",,0
+help,"ekd.project.type,account",0,"Link this project to an account if you need financial management on projects. It enables you to connect projects with budgets, planning, cost and revenue analysis, timesheets on projects, etc.",,0
+help,"ekd.project.type,analytic",0,"Link this project to an analytic account if you need financial management on projects. It enables you to connect projects with budgets, planning, cost and revenue analysis, timesheets on projects, etc.",,0
+model,"ekd.project,name",0,Project Main,Основной проект,0
+model,"ekd.project.budget,name",0,Project Budget Line,Строка бюджета,0
+model,"ekd.project.budget.line,name",0,Project Budget Line,Строка бюджета,0
+model,"ekd.project.budget.lines.template,name",0,Project Budget Lines Template,,0
+model,"ekd.project.budget.template,name",0,Project Budget Template,Шаблон бюджета проекта,0
+model,"ekd.project.events,name",0,Project Events,,0
+model,"ekd.project.journal,name",0,ekd.project.journal,Журнал ,0
+model,"ekd.project.journal.line,name",0,ekd.project.journal.line,,0
+model,"ekd.project.members,name",0,Project Member,Участник проекта,0
+model,"ekd.project.property,name",0,Project Main Property,Основной проект свойства,0
+model,"ekd.project.subproject,name",0,Project Main,Основной проект,0
+model,"ekd.project.tasks,name",0,Project Tasks,Задачи проекта,0
+model,"ekd.project.tasks.type,name",0,Project Type,Тип проекта,0
+model,"ekd.project.tasks.type.property,name",0,Project Type,Тип проекта,0
+model,"ekd.project.tasks.works,name",0,Tasks Work,Работа по задачам,0
+model,"ekd.project.type,name",0,Project Type,Тип проекта,0
+model,"ekd.project.type.property,name",0,Project Type,Тип проекта,0
+model,"ir.action,name",act_budget_current_tree_project,Current Budgets,Текущие бюджеты,0
+model,"ir.action,name",act_budget_form_project, All Budgets,Бюджеты,0
+model,"ir.action,name",act_project_all_list,List All Projects,Все проекты,0
+model,"ir.action,name",act_project_all_tree,Struct All Projects,Структура всех проектов,0
+model,"ir.action,name",act_project_cancelled_list,Cancelled Projects,Отмененные задачи,0
+model,"ir.action,name",act_project_done_list,Done Projects,Выполненные проекты,0
+model,"ir.action,name",act_project_draft_list,Draft Projects,Ченовики проектов,0
+model,"ir.action,name",act_project_journal_all_list,All journals,Общий журнал,0
+model,"ir.action,name",act_project_new,New Project,Новый проект,0
+model,"ir.action,name",act_project_open,Running Main Projects,Текущие проекты,0
+model,"ir.action,name",act_project_open_list,Open Projects,Текущие проекты,0
+model,"ir.action,name",act_project_pending_list,Pending Projects,Ожидающиеся проекты,0
+model,"ir.action,name",act_project_task_all_list,All tasks,Все задачи,0
+model,"ir.action,name",act_project_task_current_list,Current tasks,Текущая задача,0
+model,"ir.action,name",act_project_task_current_tree,Struct Current tasks,Структура задачи,0
+model,"ir.action,name",act_project_task_new,New Task,Новая задача,0
+model,"ir.action,name",act_project_task_pending_list,Pending tasks,Ожидающая задача ,0
+model,"ir.action,name",act_project_tasks_type_list,Type Task,Тип задачи,0
+model,"ir.action,name",act_project_template_list,Template Projects,Шаблоны проектов,0
+model,"ir.action,name",act_project_type_form,List Types Project,Типы проектов,0
+model,"ir.action,name",report_budget_project,Budget Project,Бюджет проекта,0
+model,"ir.action,name",report_budget_project1,Budget Project,Бюджет проекта,0
+model,"ir.action,name",view_project_type_tree1, Struct Types Project,Структура типов проектов,0
+model,"ir.dictions,value",cash_ref_project,Project,Проект,0
+model,"ir.dictions,value",request_ref,Project,Проект,0
+model,"ir.dictions,value",type_analytic_party,Project,Учет проектов,0
+model,"ir.ui.menu,name",menu_budget_current_tree_project,Current Budgets,Текущи бюджеты,0
+model,"ir.ui.menu,name",menu_budget_form_project, All Budgets,Бюджеты,0
+model,"ir.ui.menu,name",menu_project,Project Management RU,Проекты,0
+model,"ir.ui.menu,name",menu_project_all_list,List All Projects,Все проекты,0
+model,"ir.ui.menu,name",menu_project_all_tree,Struct All Projects,Структура всех проектов,0
+model,"ir.ui.menu,name",menu_project_budget,Budgets of projects,Бюджеты по проектам,0
+model,"ir.ui.menu,name",menu_project_cancelled_list,Cancelled Projects,Отмененные проекты,0
+model,"ir.ui.menu,name",menu_project_configuration,Configuration,Конфигурация,0
+model,"ir.ui.menu,name",menu_project_controls,Controls Data of projects,Контроль по проектам,0
+model,"ir.ui.menu,name",menu_project_data,Datas of projects,Данные по проекту,0
+model,"ir.ui.menu,name",menu_project_done_list,Done Projects,Выполненые проекты,0
+model,"ir.ui.menu,name",menu_project_draft_list,Draft Projects,Черновики проектов,0
+model,"ir.ui.menu,name",menu_project_journal_all_list,All journals,Все журналы,0
+model,"ir.ui.menu,name",menu_project_members,Members of projects,Участники проектов,0
+model,"ir.ui.menu,name",menu_project_new,New Project,Новый проект,0
+model,"ir.ui.menu,name",menu_project_open_list,Open Projects,Текущие проекты,0
+model,"ir.ui.menu,name",menu_project_pending_list,Pending Projects,Ожидающие проекты,0
+model,"ir.ui.menu,name",menu_project_task_all_list,All tasks,Все задачи,0
+model,"ir.ui.menu,name",menu_project_task_current_list,Current tasks,Текущая задача,0
+model,"ir.ui.menu,name",menu_project_task_current_tree,Struct Current tasks,Структура текущей задачи,0
+model,"ir.ui.menu,name",menu_project_task_new,New Task,Новая задача,0
+model,"ir.ui.menu,name",menu_project_task_pending_list,Pending tasks,Ожидающая задача,0
+model,"ir.ui.menu,name",menu_project_tasks,Tasks of projects,Задачи по проектам,0
+model,"ir.ui.menu,name",menu_project_tasks_type_list,Type Task,Тип задачи,0
+model,"ir.ui.menu,name",menu_project_template_list,Template Projects,Шаблоны проектов,0
+model,"ir.ui.menu,name",menu_project_total,Projects,Проекты,0
+model,"ir.ui.menu,name",menu_project_type, Struct Types Project,Структура типов проектов,0
+model,"ir.ui.menu,name",menu_project_type_form,List Types Project,Типы проектов,0
+model,"ir.ui.menu,name",menu_project_works,Works of projects,Работы по проектам,0
+model,"ir.ui.menu,name",menu_view_project_open,Running Main Projects,Текущие проекты,0
+model,"res.group,name",group_project,Project,Проекты,0
+model,"res.group,name",group_project_admin,Project Administration,Управление проектами,0
+model,"res.group,name",group_project_budget,Project Budget,Бюджеты проектов,0
+model,"res.group,name",group_project_control,Project Control,Контроль проектов,0
+model,"res.group,name",group_project_data,Project Input Data,,0
+model,"res.group,name",group_project_journal,Project Journal,Журнал проекта,0
+model,"res.group,name",group_project_management,Project Management,Управление проектами,0
+model,"res.group,name",group_project_task,Project Tasks,Задачи проектов,0
+model,"res.group,name",group_project_work,Project Works,Работы по проектам,0
+selection,"ekd.project,priority",0,0,,0
+selection,"ekd.project,priority",0,1,,0
+selection,"ekd.project,priority",0,10,,0
+selection,"ekd.project,priority",0,2,,0
+selection,"ekd.project,priority",0,3,,0
+selection,"ekd.project,priority",0,4,,0
+selection,"ekd.project,priority",0,5,,0
+selection,"ekd.project,priority",0,6,,0
+selection,"ekd.project,priority",0,7,,0
+selection,"ekd.project,priority",0,8,,0
+selection,"ekd.project,priority",0,9,,0
+selection,"ekd.project,state",0,Cancelled,Отмененно,0
+selection,"ekd.project,state",0,Deleted,Удалено,0
+selection,"ekd.project,state",0,Done,Выполнено,0
+selection,"ekd.project,state",0,Draft,Черновик,0
+selection,"ekd.project,state",0,Empty,Пустой,0
+selection,"ekd.project,state",0,Pending,Ожидающий решения,0
+selection,"ekd.project,state",0,Running,Выполняющиеся,0
+selection,"ekd.project,state",0,Template,Шаблон,0
+selection,"ekd.project,type_project",0,Main,Основной,0
+selection,"ekd.project,type_project",0,Sub,Субпроект,0
+selection,"ekd.project.budget,state",0,Cancelled,Отмененно,0
+selection,"ekd.project.budget,state",0,Done,Выполнено,0
+selection,"ekd.project.budget,state",0,Draft,Черновик,0
+selection,"ekd.project.budget,state",0,Paid,Оплаченный,0
+selection,"ekd.project.budget,state",0,Validated,Подтверждено,0
+selection,"ekd.project.budget.line,state",0,Cancelled,Отмененно,0
+selection,"ekd.project.budget.line,state",0,Done,Выполнено,0
+selection,"ekd.project.budget.line,state",0,Draft,Черновик,0
+selection,"ekd.project.budget.line,state",0,Paid,Оплаченный,0
+selection,"ekd.project.budget.line,state",0,Validated,Подтверждено,0
+selection,"ekd.project.budget.lines.template,type_line",0,Item,строка,0
+selection,"ekd.project.budget.lines.template,type_line",0,Section,Раздел,0
+selection,"ekd.project.budget.lines.template,type_line",0,Subtotal,Подитог,0
+selection,"ekd.project.journal,state",0,Closed,Закрыто,0
+selection,"ekd.project.journal,state",0,Draft,Черновик,0
+selection,"ekd.project.journal,state",0,Opened,Открытый,0
+selection,"ekd.project.journal.line,state",0,Closed,Закрыто,0
+selection,"ekd.project.journal.line,state",0,Distrib Tasks,Выдано заданий,0
+selection,"ekd.project.journal.line,state",0,Recruitment,Рекрут,0
+selection,"ekd.project.journal.line,state",0,Return Task,Возврат заданий,0
+selection,"ekd.project.journal.line,state",0,Work,Работа,0
+selection,"ekd.project.property,type_value",0,Date,Дата,0
+selection,"ekd.project.property,type_value",0,Note,Комментарий,0
+selection,"ekd.project.property,type_value",0,Number,Кол-во,0
+selection,"ekd.project.property,type_value",0,Time,Время,0
+selection,"ekd.project.property,type_value",0,Weight,Вес,0
+selection,"ekd.project.subproject,priority",0,1,,0
+selection,"ekd.project.subproject,priority",0,10,,0
+selection,"ekd.project.subproject,priority",0,2,,0
+selection,"ekd.project.subproject,priority",0,3,,0
+selection,"ekd.project.subproject,priority",0,4,,0
+selection,"ekd.project.subproject,priority",0,5,,0
+selection,"ekd.project.subproject,priority",0,6,,0
+selection,"ekd.project.subproject,priority",0,7,,0
+selection,"ekd.project.subproject,priority",0,8,,0
+selection,"ekd.project.subproject,priority",0,9,,0
+selection,"ekd.project.subproject,state",0,Cancelled,Отмененно,0
+selection,"ekd.project.subproject,state",0,Done,Выполнено,0
+selection,"ekd.project.subproject,state",0,Pending,Ожидающий решения,0
+selection,"ekd.project.subproject,state",0,Running,Выполняющиеся,0
+selection,"ekd.project.subproject,state",0,Template,Шаблон,0
+selection,"ekd.project.subproject,type_project",0,Main,Основной,0
+selection,"ekd.project.subproject,type_project",0,Sub,Субпроект,0
+selection,"ekd.project.tasks,priority",0,Low,Низкий,0
+selection,"ekd.project.tasks,priority",0,Medium,Средне,0
+selection,"ekd.project.tasks,priority",0,Urgent,Срочно,0
+selection,"ekd.project.tasks,priority",0,Very Low,Не срочно,0
+selection,"ekd.project.tasks,priority",0,Very urgent,Очень срочно,0
+selection,"ekd.project.tasks,state",0,Cancelled,Отмененно,0
+selection,"ekd.project.tasks,state",0,Done,Выполнено,0
+selection,"ekd.project.tasks,state",0,Draft,Черновик,0
+selection,"ekd.project.tasks,state",0,In Progress,в процессе,0
+selection,"ekd.project.tasks,state",0,Pending,Ожидающий решения,0
+selection,"ekd.project.tasks.type.property,type_value",0,Date,Дата,0
+selection,"ekd.project.tasks.type.property,type_value",0,Note,Комментарий,0
+selection,"ekd.project.tasks.type.property,type_value",0,Number,Кол-во,0
+selection,"ekd.project.tasks.type.property,type_value",0,Time,Время,0
+selection,"ekd.project.tasks.type.property,type_value",0,Weight,Вес,0
+selection,"ekd.project.tasks.works,model_ref",0,Control Statement,Контрольные ведомости,0
+selection,"ekd.project.tasks.works,model_ref",0,Input Data,,0
+selection,"ekd.project.tasks.works,model_ref",0,Member,Участники,0
+selection,"ekd.project.tasks.works,model_ref",0,Payroll Statement,Платежные ведомости,0
+selection,"ekd.project.type.property,type_value",0,Date,Дата,0
+selection,"ekd.project.type.property,type_value",0,Note,Комментарий,0
+selection,"ekd.project.type.property,type_value",0,Number,Кол-во,0
+selection,"ekd.project.type.property,type_value",0,Time,Время,0
+selection,"ekd.project.type.property,type_value",0,Weight,Вес,0
+view,ekd.account.budget,0,Account,Учетный счет,0
+view,ekd.account.budget,0,Budgets,Бюджеты,0
+view,ekd.account.budget,0,Calculate,Пересчитать,0
+view,ekd.account.budget,0,Completed,Выполнен,0
+view,ekd.account.budget,0,Draft,Черновик,0
+view,ekd.account.budget,0,Line budget,Строка бюджета,0
+view,ekd.account.budget,0,Lines Bidget,Строки бюджета,0
+view,ekd.account.budget,0,Lines Budget,Строки бюджета,0
+view,ekd.account.budget,0,Restore,Восстановить,0
+view,ekd.account.budget,0,Run,Выполняется,0
+view,ekd.account.budget,0,State,Состояние,0
+view,ekd.project,0,Account Types Templates,Шаблоны типов учетных счетов,0
+view,ekd.project,0,Administration,Администрирование,0
+view,ekd.project,0,Cancelled,Отмененно,0
+view,ekd.project,0,Change,Изменить,0
+view,ekd.project,0,Complited,Выпоненно,0
+view,ekd.project,0,Description,Описание,0
+view,ekd.project,0,Draft,Черновик,0
+view,ekd.project,0,Event,Событие,0
+view,ekd.project,0,Events,События,0
+view,ekd.project,0,General,Основной,0
+view,ekd.project,0,Line Budget,Строка бюджета,0
+view,ekd.project,0,Lines Budget,Строки бюджета,0
+view,ekd.project,0,Make Template,Сделать шаблоном,0
+view,ekd.project,0,Notes,Комментарии,0
+view,ekd.project,0,Pending,Ожидающий решения,0
+view,ekd.project,0,Project,Учет проектов,0
+view,ekd.project,0,Project Budjet,Бюджет проекта,0
+view,ekd.project,0,Project Members,Участники проекта,0
+view,ekd.project,0,Project accounting,Учет проекта,0
+view,ekd.project,0,Project state,Состояние,0
+view,ekd.project,0,Project's accounting,Учет проектов,0
+view,ekd.project,0,Project's state,Состояние проектов,0
+view,ekd.project,0,Projects,Проекты,0
+view,ekd.project,0,Restore,Восстановить,0
+view,ekd.project,0,Running,Выполняющиеся,0
+view,ekd.project,0,Stage and SubProject,Этапы и Субпроекты,0
+view,ekd.project,0,Task,Задача,0
+view,ekd.project,0,Tasks,Задачи,0
+view,ekd.project,0,Tasks and Event,Задачи и события,0
+view,ekd.project.budget,0,Account,Учетный счет,0
+view,ekd.project.budget,0,Budgets,Бюджеты,0
+view,ekd.project.budget,0,Childs Budgets,Подчиненый бюджет,0
+view,ekd.project.budget,0,General,Основной,0
+view,ekd.project.budget,0,Lines Bidget,Строки бюджета,0
+view,ekd.project.budget,0,Lines Budget,Строки бюджета,0
+view,ekd.project.journal,0,Employee,Сотрудник,0
+view,ekd.project.journal,0,Journal,Журнал,0
+view,ekd.project.subproject,0,Administration,Администрирование,0
+view,ekd.project.subproject,0,Notes,Комментарии,0
+view,ekd.project.subproject,0,Project Budjet,Бюджет проекта,0
+view,ekd.project.subproject,0,Project Members,Участники проекта,0
+view,ekd.project.subproject,0,Project's accounting,Учет проектов,0
+view,ekd.project.subproject,0,Project's state,Состояние проектов,0
+view,ekd.project.subproject,0,Stage and SubProject,Этапы и Субпроекты,0
+view,ekd.project.subproject,0,SubProject,Субпроект,0
+view,ekd.project.subproject,0,SubProjects,Субпроекты,0
+view,ekd.project.subproject,0,Tasks and Event,Задачи и события,0
+view,ekd.project.tasks,0,Assigned To,Порученно,0
+view,ekd.project.tasks,0,Childs tasks,Подчиненые задачи,0
+view,ekd.project.tasks,0,Date Task,Дата задачи,0
+view,ekd.project.tasks,0,General,Основной,0
+view,ekd.project.tasks,0,Notes,Комментарии,0
+view,ekd.project.tasks,0,Projects,Проекты,0
+view,ekd.project.tasks,0,Status Task,Статус задачи,0
+view,ekd.project.tasks,0,Task,Задача,0
+view,ekd.project.tasks,0,Tasks,Задачи,0
+view,ekd.project.tasks,0,Time and Priority,Время и Приоритет,0
+view,ekd.project.tasks,0,Work,Работа,0
+view,ekd.project.tasks,0,Work done,Выполнение задачи,0
+view,ekd.project.tasks.type,0,Type Task,Тип задачи,0
+view,ekd.project.tasks.type,0,Types task,Типы задач,0
+view,ekd.project.type,0,Account Types Templates,Шаблоны типов учетных счетов,0
+view,ekd.project.type,0,Project,Учет проектов,0
+view,ekd.project.type,0,Projects,Проекты,0

@@ -1,1 +1,116 @@
-/home/trytond-1.8.2/trytond/modules/ekd_project/xml/ekd_project_journal.xml
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data>
+
+        <record id="view_project_journal_form" model="ir.ui.view">
+            <field name="model">ekd.project.journal</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Journal">
+                    <label name="project"/>
+                    <field colspan="3" name="project"/>
+                    <label name="name" />
+                    <field name="name" />
+                    <label name="distrib_task" />
+                    <field name="distrib_task" />
+                    <label name="return_task" />
+                    <field name="return_task" />
+                    <label name="return_data" />
+                    <field name="return_data" />
+                    <label name="control_data" />
+                    <field name="control_data" />
+                    <label name="error_data" />
+                    <field name="error_data" />
+                    <label name="active" />
+                    <field name="active" />
+                    <label name="state" />
+                    <field name="state" />
+                    <notebook>
+                        <page id="line" string="Employee" angle="30">
+                            <field name="line" mode="tree">
+                                <tree fill="1"
+                                    colors="If(Greater(Eval('error_data', 0), 0), 'red', 'black')">
+                                    <field name="employee"/>
+                                    <field name="distrib_task"/>
+                                    <field name="return_task"/>
+                                    <field name="return_data"/>
+                                    <field name="control_data"/>
+                                    <field name="error_data"/>
+                                    <field name="state"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </form>
+                ]]>
+            </field>
+        </record>
+
+        <record id="view_project_journal_list" model="ir.ui.view">
+            <field name="model">ekd.project.journal</field>
+            <field name="type">tree</field>
+            <field name="priority" eval="5"/>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="Journal" 
+                    colors="If(Greater(Eval('error_data', 0), 0), 'red', 'black')">
+                    <field name="project" select="1"/>
+                    <field name="name" select="1"/>
+                    <field name="line"/>
+                    <field name="distrib_task" />
+                    <field name="return_task" />
+                    <field name="return_data" />
+                    <field name="control_data" />
+                    <field name="error_data" />
+                    <field name="state" select="1"/>
+                </tree>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_project_journal_all_list">
+            <field name="name">All journals</field>
+            <field name="res_model">ekd.project.journal</field>
+            <field name="view_type">form</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_project_journal_all_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="view_project_journal_list"/>
+            <field name="act_window" ref="act_project_journal_all_list"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_project_journal_all_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="view_project_journal_form"/>
+            <field name="act_window" ref="act_project_journal_all_list"/>
+        </record>
+
+        <menuitem parent="ekd_project.menu_project" action="act_project_journal_all_list"
+            groups="group_project_admin" id="menu_project_journal_all_list"/>
+
+        <record model="ir.model.access" id="access_project_journal">
+            <field name="model" search="[('model', '=', 'ekd.project.journal')]"/>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="access_project_journal_group">
+            <field name="model" search="[('model', '=', 'ekd.project.journal')]"/>
+            <field name="group" ref="group_project_journal"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="access_project_journal_admin">
+            <field name="model" search="[('model', '=', 'ekd.project.journal')]"/>
+            <field name="group" ref="group_project_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+
+    </data>
+</tryton>

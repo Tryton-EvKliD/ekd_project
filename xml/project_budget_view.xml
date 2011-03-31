@@ -1,1 +1,112 @@
-/home/trytond-1.8.2/trytond/modules/ekd_project/xml/project_budget_view.xml
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data>
+        <!-- Project Main-->
+        <record id="view_project_budget_template_form" model="ir.ui.view">
+            <field name="name">project.budget.template.form</field>
+            <field name="model">project.budget.template</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Project Budget Template">
+                    <group col="8" colspan="8">
+                        <field name="name" colspan="6"/>
+                        <field name="type_budget"/>
+                        <field name="start_date" colspan="2"/>
+                        <field name="end_date" colspan="2"/>
+                        <field name="active" colspan="2"/>
+                        <field name="parent_id" colspan="2"/>
+                        <newline/>
+                        <field name="notes"/>
+                    </group>
+                    <field name="line_ids" nolabel="1">
+                        <form>
+                            <field name="name" />
+                            <field name="type_line" />
+                            <field name="sort" />
+                            <field name="parent_id" />
+                            <field name="uom_id" />
+                            <field name="price_unit" />
+                            <field name="notes" />
+                        </form>
+                        <tree>
+                            <field name="budget_id" />
+                            <field name="name" />
+                            <field name="type_line" />
+                            <field name="sort" />
+                            <field name="parent_id" />
+                            <field name="uom_id" />
+                            <field name="price_unit" />
+                            <field name="notes" />
+                        </tree>
+                    </field>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_project_budget_template_list" model="ir.ui.view">
+            <field name="name">project.budget.template.list</field>
+            <field name="model">project.budget.template.</field>
+            <field name="type">tree</field>
+            <field name="priority" eval="5"/>
+            <field name="arch" type="xml">
+                <tree string="Budget Templates">
+                    <field name="name" select="1"/>
+                    <field name="type_budget" select="1"/>
+                    <field name="active" select="1"/>
+                    <field name="start_date" select="2"/>
+                    <field name="end_date" select="2"/>
+                    <field name="notes" select="2"/>
+                    <field name="line_ids" select="2"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_project_budget_template_tree" model="ir.ui.view">
+            <field name="name">project.budget.template.tree</field>
+            <field name="model">project.budget.template</field>
+            <field name="type">tree</field>
+            <field name="field_parent">child_ids</field>
+            <field name="arch" type="xml">
+                <tree string="Budget Templates">
+                    <field name="name" select="1"/>
+                    <field name="type_budget" select="1"/>
+                    <field name="active" select="1"/>
+                    <field name="start_date" select="2"/>
+                    <field name="end_date" select="2"/>
+                    <field name="notes" select="2"/>
+                    <field name="line_ids" select="2"/>
+                </tree>
+            </field>
+        </record>
+
+        <menuitem id="menu_project_budget_template" parent="project.menu_main" name="Projects Budgets"/>
+
+        <record id="open_view_project_budget_template_list" model="ir.actions.act_window">
+            <field name="name">Template Budget List</field>
+            <field name="res_model">project.budget.template</field>
+            <field name="view_type">form</field>
+            <field name="domain">[]</field>
+            <field name="view_id" ref="view_project_budget_template_list"/>
+        </record>
+        <menuitem action="open_view_project_budget_template_list" id="menu_open_view_project_budget_template_list" parent="menu_project_budget_template"/>
+
+        <record id="open_view_project_budget_template_tree" model="ir.actions.act_window">
+            <field name="name">Template Budget Tree</field>
+            <field name="res_model">project.budget.template</field>
+            <field name="view_type">form</field>
+            <field name="domain">[]</field>
+            <field name="view_id" ref="view_project_budget_template_tree"/>
+        </record>
+        <menuitem action="open_view_project_budget_template_tree" id="menu_open_view_project_budget_template_tree" parent="menu_project_budget_template"/>
+
+        <record id="open_view_project_budget_template_new" model="ir.actions.act_window">
+            <field name="name">New Budget Template</field>
+            <field name="res_model">project.budget.template</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form,tree</field>
+            <field name="view_id" eval="view_project_budget_template_form"/>
+        </record>
+        <menuitem action="open_view_project_budget_template_new" id="menu_open_view_project_budget_template_new" parent="menu_project_budget_template" sequence="50"/>
+
+    </data>
+</tryton>

@@ -1,1 +1,32 @@
-/home/trytond-1.8.2/trytond/modules/ekd_project/xml/ekd_project_reports.xml
+<?xml version="1.0"?>
+<!-- This file is part of Tryton.  The COPYRIGHT file at the top level of
+this repository contains the full copyright notices and license terms. -->
+<tryton>
+    <data>
+
+        <record model="ir.action.report" id="report_budget_project">
+            <field name="name">Budget Project</field>
+            <field name="model">ekd.project</field>
+            <field name="report_name">ekd.account.budget.project</field>
+            <field name="report">ekd_project/odt/budget_project.odt</field>
+        </record>
+        <record model="ir.action.keyword" id="keyword_budget_project">
+            <field name="keyword">form_print</field>
+            <field name="model">ekd.project,0</field>
+            <field name="action" ref="report_budget_project"/>
+        </record>
+
+        <record model="ir.action.report" id="report_budget_project1">
+            <field name="name">Budget Project</field>
+            <field name="model">ekd.account.budget</field>
+            <field name="report_name">ekd.account.budget</field>
+            <field name="report">ekd_project/odt/budget.odt</field>
+        </record>
+        <record model="ir.action.keyword" id="keyword_budget_project1">
+            <field name="keyword">form_print</field>
+            <field name="model">ekd.account.budget,0</field>
+            <field name="action" ref="report_budget_project1"/>
+        </record>
+
+    </data>
+</tryton>

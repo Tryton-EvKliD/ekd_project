@@ -1,1 +1,125 @@
-/home/trytond-1.8.2/trytond/modules/ekd_project/xml/ekd_project_type.xml
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data>
+        <!-- Type Project -->
+        <record id="view_project_type_form" model="ir.ui.view">
+            <field name="model">ekd.project.type</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Project">
+                    <group colspan="4" col="6" id="gr_head">
+                        <label name="name" />
+                        <field name="name" />
+                        <label name="shortcut" />
+                        <field name="shortcut" />
+                        <label name="code" />
+                        <field name="code" />
+                        <label name="start_date" />
+                        <field name="start_date" />
+                        <label name="end_date" />
+                        <field name="end_date" />
+                        <label name="active" />
+                        <field name="active" />
+                        <label name="parent" />
+                        <field name="parent" />
+                        <newline/>
+                        <label name="notes_model" />
+                        <field name="notes_model" />
+                        <newline/>
+                        <label name="metod_selection" />
+                        <field name="metod_selection" />
+                    </group>
+                </form>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_project_type_tree">
+            <field name="model">ekd.project.type</field>
+            <field name="type">tree</field>
+            <field name="field_childs">childs</field>
+            <field name="arch" type="xml">
+            <![CDATA[
+                <tree string="Account Types Templates">
+                    <field name="code_full" select="1"/>
+                    <field name="name_full" select="1"/>
+                    <field name="start_date" select="1"/>
+                    <field name="end_date" select="1"/>
+                    <field name="notes_model" select="1"/>
+                </tree>
+            ]]>
+            </field>
+        </record>
+
+        <record id="view_project_type_list" model="ir.ui.view">
+            <field name="model">ekd.project.type</field>
+            <field name="type">tree</field>
+            <field name="priority" eval="5"/>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="Projects">
+                    <field name="code_full" select="1"/>
+                    <field name="name_full" select="1"/>
+                    <field name="shortcut" select="1"/>
+                    <field name="start_date" select="1"/>
+                    <field name="end_date" select="1"/>
+                </tree>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_project_type_form">
+            <field name="name">List Types Project</field>
+            <field name="res_model">ekd.project.type</field>
+            <field name="view_type">form</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_project_type_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="view_project_type_list"/>
+            <field name="act_window" ref="act_project_type_form"/>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_project_type_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="view_project_type_form"/>
+            <field name="act_window" ref="act_project_type_form"/>
+        </record>
+
+        <menuitem parent="menu_project_configuration" action="act_project_type_form"
+                                id="menu_project_type_form"/>
+
+        <record id="view_project_type_tree1" model="ir.action.act_window">
+            <field name="name"> Struct Types Project</field>
+            <field name="res_model">ekd.project.type</field>
+            <field name="view_type">tree</field>
+            <field name="domain">[('parent', '=', False)]</field>
+        </record>
+
+        <record model="ir.action.act_window.view"
+                id="view_act_project_type_tree">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="view_project_type_tree"/>
+            <field name="act_window" ref="view_project_type_tree1"/>
+        </record>
+
+        <menuitem action="view_project_type_tree1" id="menu_project_type" parent="menu_project_configuration"/>
+
+        <record model="ir.model.access" id="access_project_type">
+            <field name="model" search="[('model', '=', 'ekd.project.type')]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="access_project_type_ru_admin">
+            <field name="model" search="[('model', '=', 'ekd.project.type')]"/>
+            <field name="group" ref="group_project_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+    </data>
+</tryton>

@@ -1,1 +1,180 @@
-/home/trytond-1.8.2/trytond/modules/ekd_project/xml/project_budget.xml
+<?xml version="1.0"?>
+<tryton>
+    <data>
+        <record model="ir.ui.view" id="view_project_budget_form">
+            <field name="model">project.budget</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Account" col="6">
+                    <group col="8" id="all_head">
+                        <group col="4" id="budget_head">
+                            <label name="company"/>
+                            <field name="company" />
+                            <label name="name"/>
+                            <field name="name"/>
+                            <label name="code"/>
+                            <field name="code"/>
+                            <label name="active"/>
+                            <field name="active" xexpand="0" width="100"/>
+                        </group>
+                    </group>
+                    <newline/>
+                    <notebook>
+                        <page string="General" id="spec">
+                            <label name="type_budget"/>
+                            <field name="type_budget" />
+                            <label name="direct_budget"/>
+                            <field name="direct_budget" />
+                            <label name="currency"/>
+                            <field name="currency"/>
+                            <label name="parent"/>
+                            <field name="parent"/>
+                            <label name="start_date"/>
+                            <field name="start_date"/>
+                            <label name="end_date"/>
+                            <field name="end_date" />
+                        </page>
+                        <page string="Lines Bidget" id="lines">
+                            <field name="lines">
+                                <form string="" >
+                                    <group col="8" id="total">
+                                        <group id="first">
+                                            <label name="analytic"/>
+                                            <field name="analytic"/>
+                                            <label name="name"/>
+                                            <field name="name"/>
+                                        </group>
+                                        <newline/>
+                                        <group col="6" id="second">
+                                            <label name="sequence"/>
+                                            <field colspan="1" name="sequence"/>
+                                            <label name="kind"/>
+                                            <field colspan="1" name="kind"/>
+                                            <label name="type_line"/>
+                                            <field colspan="1" name="type_line"/>
+                                        </group>
+                                        <newline/>
+                                        <group col="4" id="second">
+                                            <label name="uom"/>
+                                            <field name="uom"/>
+                                            <label name="quantity"/>
+                                            <field name="quantity"/>
+                                            <label name="price_unit"/>
+                                            <field name="price_unit"/>
+                                            <label name="currency"/>
+                                            <field name="currency"/>
+                                            <label name="amount"/>
+                                            <field name="amount"/>
+                                        </group>
+                                    </group>
+                                    <field name="unit_digits" invisible="1"/>
+<!-->
+                                    <label name="number"/>
+                                    <field colspan="1" name="number"/>
+                                    <label name="code"/>
+                                    <field name="code"/>
+                                    <label name="parent"/>
+                                    <field name="parent"/>
+                                    <label name="childs"/>
+                                    <field name="childs"/>
+                                    <label name="quantity"/>
+                                    <field name="quantity"/>
+                                    <label name="amount"/>
+                                    <field name="amount"/>
+                                    <label name="currency"/>
+                                    <field name="currency"/>
+                                    <field name="code"/>
+                                    <field name="currency" tree_invisible="1"/>
+                                    <field name="amount"/>
+<-->
+                                </form>
+                                <tree string="Lines Budget" sequence="sequence" fill="1" 
+                                    colors="If(Equal(Eval('type_line'), 'section'),'blue',If(Equal(Eval('type_line'), 'subtotal'),'magenta','black'))">
+                                    <field name="sequence"/>
+                                    <field name="name"/>
+                                    <field name="analytic" tree_invisible="1"/>
+                                    <field name="quantity"/>
+                                    <field name="uom"/>
+                                    <field name="price_unit"/>
+                                    <field name="currency"/>
+                                    <field name="amount"/>
+                                    <field name="kind" tree_invisible="1"/>
+                                    <field name="type_line" tree_invisible="1"/>
+                                    <field name="unit_digits" tree_invisible="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Childs Budgets" id="childs">
+                            <field name="childs" />
+                        </page>
+                    </notebook>
+                </form>
+                ]]>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_project_budget_tree">
+            <field name="model">project.budget</field>
+            <field name="type">tree</field>
+            <field name="field_childs">childs</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="Budgets">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="type_budget" select="1"/>
+                </tree>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_project_budget_form">
+            <field name="name">Budgets of Projects</field>
+            <field name="res_model">project.budget</field>
+            <field name="view_type">form</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_project_budget_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="view_project_budget_tree"/>
+            <field name="act_window" ref="act_project_budget_form"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_project_budget_form_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="view_project_budget_form"/>
+            <field name="act_window" ref="act_project_budget_form"/>
+        </record>
+
+        <menuitem parent="menu_project_budget"
+            action="act_project_budget_form" id="menu_project_budget_form"/>
+
+        <record model="ir.action.act_window" id="act_project_budget_tree">
+            <field name="name">Tree Budgets</field>
+            <field name="res_model">project.budget</field>
+            <field name="view_type">tree</field>
+            <field name="domain">[('parent', '=', False),('active','=',True)]</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_project_budget_tree_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="view_project_budget_tree"/>
+            <field name="act_window" ref="act_project_budget_tree"/>
+        </record>
+        <menuitem parent="menu_project_budget"
+            action="act_project_budget_tree" id="menu_project_budget_tree"/>
+
+        <record model="ir.model.access" id="access_project_budget">
+            <field name="model" search="[('model', '=', 'project.budget')]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="access_project_budget_admin">
+            <field name="model" search="[('model', '=', 'project.budget')]"/>
+            <field name="group" ref="group_project_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+    </data>
+</tryton>

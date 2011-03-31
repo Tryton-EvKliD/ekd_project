@@ -1,1 +1,185 @@
-/home/trytond-1.8.2/trytond/modules/ekd_project/xml/ekd_subproject_view.xml
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data>
+
+
+        <!-- Sub Project Main-->
+        <record id="view_subproject_form" model="ir.ui.view">
+            <field name="model">ekd.project.subproject</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="SubProject">
+                    <group colspan="4" col="6" id="gr_head">
+                        <label name="name" />
+                        <field name="name" />
+                        <label name="shortcut" />
+                        <field name="shortcut" />
+                        <label name="code" />
+                        <field name="code" />
+                        <label name="manager" />
+                        <field name="manager" />
+                        <label name="start_date" />
+                        <field name="start_date" />
+                        <label name="end_date" />
+                        <field name="end_date" />
+                    </group>
+                    <notebook colspan="4">
+                        <page string="Administration" id="page_admin">
+                            <separator colspan="4" string="Project's accounting" id="sep_admin"/>
+                            <separator colspan="4" string="Project's state" id="sep_prj_state"/>
+                            <label name="active" />
+                            <field name="active" />
+                            <label name="priority" />
+                            <field name="priority" />
+                            <label name="employee" />
+                            <field name="employee" />
+                            <label name="warn_employee" />
+                            <field name="warn_employee" />
+                            <group col="9" colspan="8" id="gr_state">
+                                <label name="state" />
+                                <field name="state" />
+                            </group>
+                        </page>
+                        <page string="Project Members" id="page_member">
+                            <field colspan="4" name="members"/>
+                        </page>
+                        <page string="Project Budjet" id="page_budget">
+                        </page>
+<!-->
+
+                            <field colspan="4" name="budget" />
+                            <field colspan="4" name="tasks"/>
+<-->
+                        <page string="Tasks and Event" id="page_task">
+                        </page>
+                        <page string="Stage and SubProject" id="page_sub">
+                            <field colspan="4" name="childs"/>
+                        </page>
+                        <page string="Notes" id="page_note">
+                            <field colspan="4" name="notes"/>
+                        </page>
+                    </notebook>
+                </form>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_subproject_tree">
+            <field name="model">ekd.project</field>
+            <field name="type">tree</field>
+            <field name="field_childs">childs</field>
+            <field name="arch" type="xml">
+            <![CDATA[
+                <tree string="Account Types Templates">
+                    <field name="name" select="1"/>
+                    <field name="start_date" select="1"/>
+                    <field name="end_date" select="1"/>
+                    <field name="manager" select="1"/>
+                    <field name="employee" select="1"/>
+                    <field name="party"/>
+                    <field name="state"/>
+                </tree>
+            ]]>
+            </field>
+        </record>
+
+        <record id="view_subproject_list" model="ir.ui.view">
+            <field name="model">ekd.project.subproject</field>
+            <field name="type">tree</field>
+            <field name="priority" eval="5"/>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="SubProjects">
+                    <field name="name"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="manager"/>
+                    <field name="state"/>
+                </tree>
+                ]]>
+            </field>
+        </record>
+
+<!-->
+        <record id="view_project_all" model="ir.action.act_window">
+            <field name="name">All Main Projects</field>
+            <field name="res_model">ekd.project.subproject</field>
+            <field name="view_type">tree</field>
+            <field name="domain">[('parent', '=', False)]</field>
+        </record>
+
+        <record model="ir.action.act_window.view"
+                id="view_act_project_all_tree">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="view_project_tree"/>
+            <field name="act_window" ref="view_project_all"/>
+        </record>
+
+        <menuitem action="view_project_all" id="menu_project_all" parent="menu_project"/>
+
+        <record id="view_project_open" model="ir.action.act_window">
+            <field name="name">Running Main Projects</field>
+            <field name="res_model">ekd.project</field>
+            <field name="view_type">tree</field>
+            <field name="domain">[('parent', '=', False),('state','=','open')]</field>
+        </record>
+
+        <record model="ir.action.act_window.view"
+                id="view_act_project_open_tree">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="view_project_tree"/>
+            <field name="act_window" ref="view_project_open"/>
+        </record>
+
+        <menuitem action="view_project_open" id="menu_view_project_open" parent="menu_project_all"/>
+
+        <record id="open_view_template_project_main" model="ir.action.act_window">
+            <field name="name">Template of Main Projects</field>
+            <field name="res_model">ekd.project</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('state','=','template')]</field>
+            <field name="view" ref="view_project_main_list"/>
+        </record>
+        <menuitem action="open_view_template_project_main" id="menu_template_project_main" parent="project.menu_definitions"/>
+        <record id="view_project_new" model="ir.action.act_window">
+            <field name="name">New Project</field>
+            <field name="res_model">ekd.project</field>
+            <field name="view_type">form</field>
+        </record>
+
+        <record model="ir.action.act_window.view"
+                id="view_act_project_new">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="view_project_form"/>
+            <field name="act_window" ref="view_project_new"/>
+        </record>
+
+        <menuitem action="view_project_new" id="menu_project_new" parent="menu_project" sequence="50"/>
+<-->
+
+        <record model="ir.model.access" id="access_subproject">
+            <field name="model" search="[('model', '=', 'ekd.project.subproject')]"/>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="access_subproject_group">
+            <field name="model" search="[('model', '=', 'ekd.project.subproject')]"/>
+            <field name="group" ref="group_project"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="access_subproject_admin">
+            <field name="model" search="[('model', '=', 'ekd.project.subproject')]"/>
+            <field name="group" ref="group_project_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+    </data>
+</tryton>

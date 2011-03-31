@@ -1,1 +1,106 @@
-/home/trytond-1.8.2/trytond/modules/ekd_project/xml/ekd_project_task_type.xml
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data>
+
+        <record id="view_project_tasks_type_form" model="ir.ui.view">
+            <field name="model">ekd.project.tasks.type</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Type Task">
+                    <group col="3" id="gr_head">
+                        <group colspan="3" col="6" id="gr_general">
+                            <label name="name" />
+                            <field name="name" />
+                            <label name="shortcut" />
+                            <field name="shortcut" />
+                            <label name="code" />
+                            <field name="code" />
+                            <label name="parent" />
+                            <field name="parent" />
+                        </group>
+                        <newline/>
+                        <group col="2" id="gr_account">
+                            <label name="account" />
+                            <field name="account" />
+                            <label name="analytic" />
+                            <field name="analytic" />
+                        </group>
+                        <group col="2" id="gr_date">
+                            <label name="start_date" />
+                            <field name="start_date" />
+                            <label name="end_date" />
+                            <field name="end_date" />
+                            <label name="active" />
+                            <field name="active" />
+                        </group>
+                        <group col="2" id="gr_property">
+                            <field name="property" />
+                        </group>
+                    </group>
+                </form>
+                ]]>
+            </field>
+        </record>
+
+        <record id="view_project_tasks_type_list" model="ir.ui.view">
+            <field name="model">ekd.project.tasks.type</field>
+            <field name="type">tree</field>
+            <field name="priority" eval="5"/>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="Types task">
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                </tree>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_project_tasks_type_list">
+            <field name="name">Type Task</field>
+            <field name="res_model">project.task</field>
+            <field name="view_type">form</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_project_tasks_type_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="view_project_tasks_type_list"/>
+            <field name="act_window" ref="act_project_tasks_type_list"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_project_tasks_type_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="view_project_tasks_type_form"/>
+            <field name="act_window" ref="act_project_tasks_type_list"/>
+        </record>
+
+        <menuitem parent="menu_project_configuration" action="act_project_tasks_type_list"
+                            id="menu_project_tasks_type_list"/>
+
+        <record model="ir.model.access" id="access_project_tasks_type">
+            <field name="model" search="[('model', '=', 'ekd.project.tasks.type')]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="access_project_tasks_type_group">
+            <field name="model" search="[('model', '=', 'ekd.project.tasks.type')]"/>
+            <field name="group" ref="group_project_task"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="access_project_tasks_type_admin">
+            <field name="model" search="[('model', '=', 'ekd.project.tasks.type')]"/>
+            <field name="group" ref="group_project_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+
+    </data>
+</tryton>

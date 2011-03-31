@@ -1,1 +1,36 @@
-/home/trytond-1.8.2/trytond/modules/ekd_project/xml/ekd_system.xml
+<?xml version="1.0"?>
+<!-- This file is part of Tryton.  The COPYRIGHT file at the top level of
+this repository contains the full copyright notices and license terms. -->
+<tryton>
+    <data>
+        <record model="ir.dictions"
+            id="request_ref">
+            <field name="key">ekd.project</field>
+            <field name="value">Project</field>
+            <field name="model">ekd.document.head.request</field>
+            <field name="pole">document_ref</field>
+            <field name="sequence">030</field>
+        </record>
+
+        <record model="ir.dictions" 
+            id="cash_ref_project">
+            <field name="key">ekd.project</field>
+            <field name="value">Project</field>
+            <field name="model">ekd.document.head.cash</field>
+            <field name="pole">documents_base_ref</field>
+            <field name="sequence">060</field>
+        </record>
+
+<!-- Diction For Level Analytic -->
+
+    <record model="ir.dictions"
+        id="type_analytic_party">
+        <field name="key">ekd.project</field>
+        <field name="value">Project</field>
+        <field name="model">ekd.account.level_analytic</field>
+        <field name="pole">type_analytic</field>
+        <field name="sequence">230</field>
+    </record>
+
+    </data>
+</tryton>
